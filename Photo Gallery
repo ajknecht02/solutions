@@ -1,0 +1,480 @@
+<div class="nursery-wrapper"> 
+   <div class="baby-search-container container"> 
+      <h2> 
+         <span>Marshfield Medical </span> 
+         <span>Center Online Nursery</span></h2>
+      <input type="text" placeholder="Baby's or parent's name..." title="baby search field" id="baby-search-field"> 
+   </div> 
+   <div class="baby-container container">
+   </div>
+   <div class="baby-bg-greyout">
+      <div class="mobile-baby-detail-flyin">
+         <div class="baby-detail-close-x"> X </div>
+         <div class="mobile-baby-detail-container">
+         </div>
+      </div>
+   </div> 
+</div>
+
+<style>
+        .nursery-wrapper {
+            position: relative;
+            width: 100% !important;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .baby-search-container h2 {
+            font-family: 'Open Sans', sans-serif;
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-size: 26px;
+        }
+        .single-baby {
+            background: #f5f5f5;
+            padding: 0 20px 50px 20px;
+            margin: 20px auto;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 94%;
+            box-sizing: border-box;
+        }
+        .single-baby-name {
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            font-family: 'Handlee', cursive;
+        }
+        .single-baby-sex {
+            font-size: 22px;
+            margin-top: 5px;
+        }
+        .single-baby-sex,
+        .single-baby-born-on-date,
+        .single-baby-to-parents {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .see-more-of-this-baby{
+            text-align: center;
+            display: block;
+            line-height: 40px;
+            position: absolute;
+            width: 100%;
+            background: #d0d0d0;
+            color: #464646;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            font-family: 'Open Sans', sans-serif;
+            cursor: pointer;
+        }
+        .image-container {
+            width: 100%;
+            height: 260px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 10px;
+        }
+        input#baby-search-field {
+            border: 1px solid #e3e3e3;
+            display: block;
+            width: 90%;
+            border-radius: 10px;
+            margin: 20px auto 20px;
+            font-size: 16px;
+            padding: 10px;
+            background-image: url(https://cdn4.iconfinder.com/data/icons/pictype-free-vector-icons/16/search-128.png);
+            background-size: 24px;
+            background-repeat: no-repeat;
+            background-position: 97% center;
+        }
+        .mobile-baby-detail-container {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .mobile-baby-detail-flyin {
+            transition: 0.3s;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 200%;
+            right: 0;
+            z-index: 9999;
+        }
+        .mobile-baby-detail-flyin .baby-detail-close-x {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        .baby-detail-open{
+            transition: 0.3s;
+            left: 0 !important;
+        }
+        .main-baby-detail-photo-container {
+            height: 240px;
+            width: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-bottom: 20px;
+            background-position: center;
+        }
+        .baby-detail-thumbnail {
+            width:100px;
+            height: 75px;
+            display: inline-block;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 2%;
+        }
+        .baby-detail-name {
+            line-height: 50px;
+            font-size: 30px;
+            font-family: 'Handlee', cursive;
+            margin-top: 40px;
+        }
+        .baby-detail-date,
+        .baby-detail-weight-length,
+        .baby-detail-parents {
+            padding: 5px;
+        }
+        .baby-detail-parents {
+            margin-bottom: 20px;
+        }
+        .active-baby-thumbnail {
+            border-bottom: 3px solid #a40046;
+        }
+        .baby-bg-greyout {
+            display: none;
+        }
+        .baby-scroll-to-top {
+            transition: 0.3s;
+            background: #a40046;
+            color: #ffffff;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: -80px;
+            height: 40px;
+            z-index: 99;
+            text-align: center;
+            line-height: 40px;
+        }
+        .baby-scroll-to-top.shown {
+            transition: 0.3s;
+            bottom: 0;
+        }
+
+@media screen and (min-width:650px) and (max-width:899px) {
+        .main-baby-detail-photo-container {
+            height: 400px;
+        }
+}
+@media screen and (min-width:480px) and (max-width:649px) {
+        .main-baby-detail-photo-container {
+            height: 300px;
+        }
+}
+@media screen and (max-width:359px) {
+        .baby-detail-name { margin-top:10px !important; }
+        .baby-detail-parents { margin-bottom:0px !important; }
+        .main-baby-detail-photo-container { margin-bottom:0px !important; }
+}
+        @media screen and (min-width:900px) {
+            .single-baby {
+                width: 31.33%;
+                display: inline-block;
+                vertical-align: top;
+                margin: 1%;
+                box-sizing: border-box;
+                border-radius: 0;
+            }
+            .image-container {
+                border-radius: 0;
+            }
+            .mobile-baby-detail-flyin {
+                transition: 0.3s;
+                width: auto;
+                height: auto;
+                background: #ffffff;
+                position: fixed;
+                top: 2%;
+                bottom: 2%;
+                left: 200%;
+                right: 12%;
+                z-index: 9999;
+                box-shadow: 0 0 20px #2f2f2f;
+                border-radius: 10px;
+            }
+            .baby-detail-open{
+                transition: 0.3s;
+                left: 12% !important;
+            }
+            .baby-bg-greyout {
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.7);
+                width: 100%;
+                height: 100%;
+                display: none;
+                z-index: 9999;
+            }
+            .main-baby-detail-photo-container {
+                width: 58%;
+                height: 50%;
+                display: inline-block;
+                vertical-align: top;
+                margin-right: 25px;
+            }
+            .baby-thumbs-container {
+                width: 22%%;
+                display: inline-block;
+                vertical-align: top;
+            }
+            .baby-detail-thumbnail {
+                width: 234px;
+                height: 160px;
+                display: block;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-bottom: 10px;
+            }
+            .baby-scroll-to-top {
+                display: none;
+            }
+            input#baby-search-field {
+                border: 1px solid #404040;
+                width: 96%;
+            }
+        }
+        @media screen and (max-width:1200px) {
+            .single-baby-name {
+                font-size: 20px;
+            }
+        }
+    </style>
+
+<script type="text/javascript" src="./SiteAssets/jquery.SPServices-0.7.0.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazy/1.7.4/jquery.lazy.min.js"></script>
+<script> 
+    var singleBabiesArr = [];
+    var babiesObject = {};
+        var html = '';
+function getBabyPhotos(){
+$().SPServices({
+       webUrl: "/",
+       operation: "GetListItems",
+       async: false,
+       listName: "BabyData",
+    CAMLQueryOptions: "<QueryOptions>" +
+            "<IncludeAttachmentUrls>TRUE</IncludeAttachmentUrls>" +
+        "</QueryOptions>",
+       completefunc: function (xData, Status) {
+         $(xData.responseXML).SPFilterNode("z:row").each(function(i) { 
+            // Title field serves as replacement for data[i]['note']
+            //var note = ($(this).attr("ows_Title")); 
+            //console.log(note);
+
+            // BabyNote field serves as replacement for data[i]['note']
+            var note = $(this).attr("ows_BabyNote");
+            note = note.substring(note.indexOf("string;#") + 8);
+            //console.log(note);
+
+            // Need to build out the complete URL, but this would serve as replacement for data[i].image.original.url
+            //var imageURL = "/Baby%20Photos%20Image%20Library/" + ($(this).attr("ows_LinkFilenameNoMenu")); 
+           //console.log(imageURL); 
+            //makeTheBabies(note,imageURL);
+  
+            var attachments = [];
+            var att = $(this).attr("ows_Attachments");
+            console.log(att);
+            if(att !== "0") {
+                attachments = att.split(";#"); // Now you'll have an array of attachment URLs
+            } else {
+                // att will be "0", indicating that there are no attachments
+            }
+            // run through each photo, create the object and build the array
+            for (var i = 0; i < attachments.length; i++) {
+                // replacement for data[i].image.original.url
+                console.log(attachments[i]);
+                if (attachments[i].length > 0) {
+                    var imageURL = attachments[i];
+                    makeTheBabies(note,imageURL);
+                }
+            }        
+      });
+    }
+  }); 
+}
+    function makeTheBabies(note,imageURL){
+
+            if(singleBabiesArr.indexOf(note) === -1){ // check if this baby exists in the array
+
+                // split array from pinterest to get baby data (name, tob, parents, etc..)
+                var babyMeta = note.split(',');
+
+                // push each unique baby photo to an array to remove duplicates from list view
+                singleBabiesArr.push(note);
+
+                //populate the global baby object for later use in detail view
+                babiesObject[note] = [imageURL];
+
+                // write each individual baby item
+                //var date = new Date(babyMeta[0] + " 16:00:00");
+                //var millisecondOrder = date.getTime();
+
+                var time = babyMeta[1];
+                time = time.substring(1); // need to remove the leading space
+                var hours = Number(time.match(/^(\d+)/)[1]);
+                var minutes = Number(time.match(/:(\d+)/)[1]);
+                var AMPM = time.match(/\s(.*)$/)[1];
+                if(AMPM == "p.m." && hours<12) hours = hours+12;
+                if(AMPM == "a.m." && hours==12) hours = hours-12;
+                var sHours = hours.toString();
+                var sMinutes = minutes.toString();
+                if(hours<10) sHours = "0" + sHours;
+                if(minutes<10) sMinutes = "0" + sMinutes;
+                var militaryTime = " " + sHours + ":" + sMinutes + ":00";
+                
+                var date = new Date(babyMeta[0] + militaryTime);
+                var millisecondOrder = date.getTime();
+
+                html += '<div data-time-order="' + millisecondOrder + '" data-baby-sex="' + babyMeta[3].toLocaleLowerCase() +  '" data-baby-parents="' + babyMeta[4].toLocaleLowerCase() +  '" data-baby-name="' + babyMeta[2].toLocaleLowerCase() +  '" class="single-baby">';
+                html += '<div class="single-baby-name">' + babyMeta[2] +  '</div>';
+                html += '<div class="image-container lazy" data-src="' + imageURL + '"></div>';
+                html += '<div class="single-baby-sex">It\'s a ' + babyMeta[3] +  '!</div>';
+                html += '<div class="single-baby-born-on-date">Born on ' + babyMeta[0] +  ' at ' + babyMeta[1] +  '</div>';
+                html += '<div class="single-baby-to-parents">to ' + babyMeta[4] +  '</div>';
+                html += '<a id="baby-see-more-photos-button"><div data-this-baby="' + note + '" class="see-more-of-this-baby">See more photos</div></a>';
+                html += '</div>';
+
+            }else{ // if this baby was already in the array, we just store the new photo url
+                babiesObject[note].push(imageURL);
+            }
+        $('.baby-container').html(html);
+        // this was not working
+        //$('.single-baby').sort(function(a,b){
+        //   var A = parseInt($(a).attr('data-time-order'));
+        //    var B = parseInt($(b).attr('data-time-order'));
+        //    return B - A;
+        //});
+//$(function() {
+//  $(".baby-container .single-baby").sort(sort_li).appendTo('.baby-container');
+//  function sort_li(a, b) {
+//   return ($(b).attr('data-time-order')) < ($(a).attr('data-time-order')) ? -1 : 1;
+//  }
+//}); 
+        sortBabies();
+        addBabyEventListeners();
+    }
+
+function sortBabies() {
+  $(".baby-container .single-baby").sort(sort_li).appendTo('.baby-container');
+}
+  function sort_li(a, b) {
+    return ($(b).attr('data-time-order')) < ($(a).attr('data-time-order')) ? -1 : 1;
+  }
+
+    function openBabyView(thisBaby){
+        var currentBabyArray = thisBaby.split(',');
+        var currentBabyPhotos = babiesObject[thisBaby];
+        var currentBabyName = currentBabyArray[2];
+        var currentBabyDOB = currentBabyArray[0];
+        var currentBabyTOB = currentBabyArray[1];
+        var currentBabyWeight = currentBabyArray[5];
+        var currentBabyLength = currentBabyArray[6];
+        var currentBabyParents = currentBabyArray[4];
+        var html = '';
+        html += '<div class="baby-detail-name">' + currentBabyName + '</div>';
+        html += '<div class="baby-detail-date">Born: ' + currentBabyDOB + ' at: ' + currentBabyTOB + '</div>';
+        html += '<div class="baby-detail-weight-length">Weight: ' + currentBabyWeight + ' Length: ' + currentBabyLength + '</div>';
+        html += '<div class="baby-detail-parents">Parent(s): ' + currentBabyParents + '</div>';
+        html += '<div class="main-baby-detail-photo-container" style="background-image: url(' + currentBabyPhotos[0] + ');"></div>';
+        html += '<div class="baby-thumbs-container">';
+        for(var i = 0; i < currentBabyPhotos.length; i++){
+            if(i === 0){
+                html += '<div class="baby-detail-thumbnail active-baby-thumbnail" style="background-image: url(' + currentBabyPhotos[i] + ');"></div>';
+            }else{
+                html += '<div class="baby-detail-thumbnail" style="background-image: url(' + currentBabyPhotos[i] + ');"></div>';
+            }
+        }
+        html += '</div>';
+
+        $('.mobile-baby-detail-container').html(html);
+        $('.baby-detail-thumbnail').click(function(){
+            $('.baby-detail-thumbnail').removeClass('active-baby-thumbnail');
+            $(this).addClass('active-baby-thumbnail');
+            var clickedImage = $(this).css('background-image').slice(4, -1).replace(/"/g, "");
+            $('.main-baby-detail-photo-container').css('background-image', 'url(' + clickedImage + ')');
+        })
+    }
+
+    function addBabyEventListeners(){
+        $('#baby-search-field').keyup(function () {
+            var currentValue = $(this).val().toLocaleLowerCase().replace(/ /g, '');
+            if(currentValue !== null && currentValue !== ''){
+                $('.single-baby').hide();
+            }
+            $('.single-baby').each(function(){
+                if($(this).attr('data-baby-name').indexOf(currentValue) > -1 || $(this).attr('data-baby-parents').indexOf(currentValue) > -1){
+                    $(this).show();
+                }
+            })
+        });
+        $('#baby-search-form').submit(function(e){
+            e.preventDefault();
+        });
+        $('.see-more-of-this-baby').click(function(){
+            var thisBaby = $(this).attr('data-this-baby');
+            openBabyView(thisBaby);
+            $('.baby-bg-greyout').show();
+            $('.mobile-baby-detail-flyin').addClass('baby-detail-open');
+        });
+        $('.baby-detail-close-x').click(function(){
+            $('.baby-bg-greyout').hide();
+            $('.mobile-baby-detail-flyin').removeClass('baby-detail-open');
+        });
+        var lastScrollTop = 0;
+        $(window).scroll(function(event){
+            var st = $(this).scrollTop();
+            if (st > lastScrollTop && st > 200){
+                $('.baby-scroll-to-top').addClass('shown');
+            } else {
+                $('.baby-scroll-to-top').removeClass('shown');
+            }
+            lastScrollTop = st;
+        });
+        $('.baby-scroll-to-top').click(function(){
+            $('html, body').animate({
+                scrollTop: 0
+            }, 999);
+        })
+    }
+
+getBabyPhotos(); 
+            $('.lazy').Lazy({
+                // your configuration goes here
+                scrollDirection: 'vertical',
+                effect: 'fadeIn',
+                visibleOnly: true,
+                onError: function (element) {
+                    console.log('error loading ' + element.data('src'));
+                }
+            });
+
+
+//console.log(singleBabiesArr); 
+//console.log(babiesObject);
+
+</script>
