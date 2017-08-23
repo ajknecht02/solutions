@@ -1,0 +1,515 @@
+
+<div id="map" style="position: relative; overflow: hidden;"></div>
+
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+            background-color: grey;
+        }
+        .little-circle-head {
+            width: 100px;
+            border-radius: 50px;
+            margin: 4px;
+            display: inline-block;
+            border: 1px solid #323232;
+        }
+        .resident-container {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+
+<script>
+    var markers = [];
+    var locations = [
+        {
+            name: 'Christopher Adler, M.D. - Wisconsin',
+            city: 'Madison',
+            state: 'WI',
+            country: 'United States',
+            medicalSchool: 'University of Wisconsin School of Medicine and Public Health',
+            lat: 43.0779,
+            lng: -89.4297,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Adler%2C%20Christopher%20Resident.jpg'
+        },
+        {
+            name: 'Rashid Ali, M.D. - Sudan',
+            city: 'Khartoum',
+            state: '',
+            country: 'Sudan',
+            medicalSchool: 'University of Khartoum',
+            lat: 15.564836,
+            lng: 32.529831,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Ali%2C%20Rashia%20Resident.jpg'
+        },
+        {
+            name: 'Jonathan Amos, M.D. - California',
+            city: '',
+            state: 'WI',
+            country: 'United States',
+            medicalSchool: 'Medical College of Wisconsin',
+            lat: 44.9591,
+            lng: -89.6301,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Amos%2C%20Jonathan.jpg'
+        },
+        {
+            name: 'Tanmayee Benjamin, M.D. - India',
+            city: 'Narketpally',
+            state: 'Telangana',
+            country: 'India',
+            medicalSchool: 'Kamineni Institute of Medical Sciences',
+            lat: 17.1990426,
+            lng: 79.2127133,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Benjamin%2C%20Tammy%20MD%20Resident.jpg'
+        },
+        {
+            name: 'Pramodh Chanumolu, M.D. - India',
+            city: 'Guntur',
+            state: 'Andhra Pradesh',
+            country: 'India',
+            medicalSchool: 'NRI Medical Coolege, Guntur',
+            lat: 16.4137,
+            lng: 80.5557,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Chanumolu%2C%20Pramodh.jpg'
+        },
+        {
+            name: 'Lydia Deekollu, M.D. - India',
+            city: 'Bharatpur',
+            state: 'Chitwan',
+            country: 'Nepal',
+            medicalSchool: 'College of Medical Sciences - Nepal',
+            lat: 27.6836,
+            lng: 84.4362,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Deekollu%20(Komanapalli)%2C%20Lydia%20Resident.jpg'
+        },
+        {
+            name: 'Sabri Elkhidir, M.D. - Sudan',
+            city: 'Khartoum',
+            state: '',
+            country: 'Sudan',
+            medicalSchool: 'University of Khartoum',
+            lat: 15.564836,
+            lng: 32.529831,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Elkhidir%2C%20Sabri%20MD%20Resident.jpg'
+        },
+        {
+            name: 'Uju Ezeamama, M.D. - Nigeria',
+            city: 'Poznan',
+            state: '',
+            country: 'Poland',
+            medicalSchool: 'Poznan University of Medical Sciences',
+            lat: 52.4098,
+            lng: 16.9190,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Ezeamama%2C%20Uju.jpg'
+        },
+        {
+            name: 'Muhammad Ishaq, M.D. - Pakistan',
+            city: 'Lahore',
+            state: 'Punjab',
+            country: 'Pakistan',
+            medicalSchool: 'Allama Iqbal Medical College',
+            lat: 31.4863,
+            lng: 74.3006,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Ishaq%2C%20Muhammad%20MD%20Resident.jpg'
+        },
+        {
+            name: 'Nirpeksh Jain, M.D. - India',
+            city: 'Jaipur',
+            state: 'Rajasthan',
+            country: 'India',
+            medicalSchool: 'Mahatma Gandhi National Institute of Medical Sciences',
+            lat: 26.7700,
+            lng: 75.8545,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Jain%2C%20Nirpeksh%20MD%20Resident.jpg'
+        },
+        {
+            name: 'Andrew Jensen, M.D. - Wisconsin',
+            city: 'Portsmouth',
+            state: '',
+            country: 'Dominica',
+            medicalSchool: 'Ross University School of Medicine',
+            lat: 15.5562,
+            lng: -61.4581,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Jensen%2C%20Andrew%20S.jpg'
+        },
+        {
+            name: 'Adnan Kiani, M.D. - Pakistan',
+            city: 'Lahore',
+            state: 'Punjab',
+            country: 'Pakistan',
+            medicalSchool: 'University of Punjab',
+            lat: 30.7601,
+            lng: 76.7663,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Kiani%2C%20Adhan%20MD.jpg'
+        },
+        {
+            name: 'Mythri Laxminarayana, M.D.',
+            city: 'Mysuru',
+            state: 'Karnataka',
+            country: 'India',
+            medicalSchool: 'Mysore Medical College',
+            lat: 12.3150,
+            lng: 76.6504,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Laxminarayana%2C%20Mythri.jpg'
+        },
+        {
+            name: 'Neeharik Mareedu, M.D. - India',
+            city: 'Khammam',
+            state: 'Telangana',
+            country: 'India',
+            medicalSchool: 'Mamata Medical College',
+            lat: 17.2428,
+            lng: 80.1682,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Mareedu%2C%20Neehank.jpg'
+        },
+        {
+            name: 'Sara Mohammed, M.D. - Sudan',
+            city: 'Khartoum',
+            state: '',
+            country: 'Sudan',
+            medicalSchool: 'University of Khartoum',
+            lat: 15.564836,
+            lng: 32.529831,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Mohammed%2C%20Sara%20%20Resident.jpg'
+        },
+        {
+            name: 'Chidinma Moito, M.D. - Nigeria',
+            city: 'Port Harcourt',
+            state: '',
+            country: 'Nigeria',
+            medicalSchool: 'University of Port Harcourt',
+            lat: 4.9018,
+            lng: 6.9205,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Moito%2C%20Chindinma.jpg'
+        },
+        {
+            name: 'Babatunde Olaiya, M.D. - Nigeria',
+            city: 'Ile-Ife',
+            state: 'Osun',
+            country: 'Nigeria',
+            medicalSchool: 'Obafemi Awolowo University',
+            lat: 7.5169,
+            lng: 4.5289,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Olaiya%2C%20Babatunde%20MD%20Resident.jpg'
+        },
+        {
+            name: 'Sunil Pathak, M.D. - India',
+            city: 'Pokhara',
+            state: '',
+            country: 'Nepal',
+            medicalSchool: 'Manipal College of Medical Sciences',
+            lat: 28.2518,
+            lng: 83.9867,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Pathak%2C%20Sunil%20%20Resident.jpg'
+        },
+        {
+            name: 'Joanna Pluta, M.D. - Poland',
+            city: 'Poznan',
+            state: '',
+            country: 'Poland',
+            medicalSchool: 'Poznan University of Medical Sciences',
+            lat: 52.4098,
+            lng: 16.9190,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Pluta%2C%20JoAnna.jpg'
+        },
+        {
+            name: 'Bindu Potugari, M.D. - India',
+            city: 'Vijayawada',
+            state: 'Andhra Pradesh',
+            country: 'India',
+            medicalSchool: 'NTR University of Health Sciences',
+            lat: 16.5164,
+            lng: 80.6693,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Potugari%2C%20Bindu%20Rani.jpg'
+        },
+        {
+            name: 'Mark Ridder, M.D. - Nebraska',
+            city: 'Vermillion',
+            state: 'South Dakota',
+            country: 'United States',
+            medicalSchool: 'Sanford School of Medicine',
+            lat: 42.7822,
+            lng: -96.9285,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Ridder%2C%20Mark%20Resident.jpg'
+        },
+        {
+            name: 'Peter Umukoro, M.D. - Nigeria',
+            city: 'Port Harcourt',
+            state: '',
+            country: 'Nigeria',
+            medicalSchool: 'University of Port Harcourt',
+            lat: 4.9018,
+            lng: 6.9205,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Umukoro%2C%20Peter%20Resident.jpg'
+        },
+        {
+            name: 'Bilal Unar, M.D. - Pakistan',
+            city: 'Hyderabad',
+            state: 'Sindh',
+            country: 'Pakistan',
+            medicalSchool: 'Irsa University',
+            lat: 25.4346,
+            lng: 68.3814,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Unar%2C%20Bilal.jpg'
+        },
+        {
+            name: 'Katherine Winiarczyk, M.D. - Wisconsin',
+            city: 'The Bottom',
+            state: 'Saba',
+            country: 'Dutch Caribbean',
+            medicalSchool: 'Saba University of Medical Sciences',
+            lat: 17.6256,
+            lng: -63.2489,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Winiarczyk%2C%20Katherine.jpg'
+        },
+        {
+            name: 'Paul Yeung, M.D. - Canada',
+            city: 'Portsmouth',
+            state: '',
+            country: 'Dominica',
+            medicalSchool: 'Ross University School of Medicine',
+            lat: 15.5562,
+            lng: -61.4581,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Yeung%2C%20Paul.jpg'
+        },
+        {
+            name: 'Chuyang Zhong, M.D. - China',
+            city: 'Guangzhou',
+            state: 'Guangdong',
+            country: 'China',
+            medicalSchool: 'Sun Yat-Sen University of Medical Sciences',
+            lat: 23.1300,
+            lng: 113.2913,
+            image: 'https://www.marshfieldclinic.org/education/ResidentsAndFellows/PublishingImages/Internal-Medicine-Resident-Map/Zhong%2C%20Chuyang.jpg'
+        }
+    ];
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 2,
+            center: {lat: 41.327546, lng: 19.818698},
+            styles: [
+                {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#e9e9e9"
+                        },
+                        {
+                            "lightness": 17
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#f5f5f5"
+                        },
+                        {
+                            "lightness": 20
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#ffffff"
+                        },
+                        {
+                            "lightness": 17
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "color": "#ffffff"
+                        },
+                        {
+                            "lightness": 29
+                        },
+                        {
+                            "weight": 0.2
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#ffffff"
+                        },
+                        {
+                            "lightness": 18
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#ffffff"
+                        },
+                        {
+                            "lightness": 16
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#f5f5f5"
+                        },
+                        {
+                            "lightness": 21
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#dedede"
+                        },
+                        {
+                            "lightness": 21
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "color": "#ffffff"
+                        },
+                        {
+                            "lightness": 16
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "saturation": 36
+                        },
+                        {
+                            "color": "#333333"
+                        },
+                        {
+                            "lightness": 40
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#f2f2f2"
+                        },
+                        {
+                            "lightness": 19
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#fefefe"
+                        },
+                        {
+                            "lightness": 20
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "color": "#fefefe"
+                        },
+                        {
+                            "lightness": 17
+                        },
+                        {
+                            "weight": 1.2
+                        }
+                    ]
+                }
+            ]
+        });
+
+        setMarkers(map);
+    }
+
+    function setMarkers(map) {
+        for (var i = 0; i < locations.length; i++) {
+
+            var location = locations[i];
+            var locationInfowindow = new google.maps.InfoWindow({
+                content: '<div class="resident-container">' + combineLikeResidents(location.medicalSchool) + '<br>' + location.medicalSchool + '</div>'
+            });
+            var marker = new google.maps.Marker({
+                position: {lat: location.lat, lng: location.lng},
+                map: map,
+                title: location[0],
+                infowindow: locationInfowindow
+            });
+
+            markers.push(marker);
+
+            google.maps.event.addListener(marker, 'click', function() {
+                hideAllInfoWindows(map);
+                this.infowindow.open(map, this);
+            });
+
+        }
+    }
+
+    function hideAllInfoWindows(map) {
+        markers.forEach(function(marker) {
+            marker.infowindow.close(map, marker);
+        });
+    }
+    function combineLikeResidents(medSchool){
+        var combinedRes = '';
+        locations.map(function(obby){
+            if(obby.medicalSchool === medSchool){
+                combinedRes += '<img class="little-circle-head" src="' + obby.image + '">';
+            }
+        });
+        return combinedRes;
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBexq8W2sASVXjYPIjYrdBxIcyheMQlPDU&amp;callback=initMap">
+</script>
