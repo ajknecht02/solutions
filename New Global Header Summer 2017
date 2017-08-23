@@ -1,0 +1,1234 @@
+/* CSS and code behind for the new Global Header on Desktop and Mobile.  Key feature of mobile is the menu slide on transition */
+/* NOTE: 
+<style>
+#top .navigation.gradient, .whiteNavBar .topNavRel .logo, .whiteNavBar .topNavRel .marshfieldHomePageSignIn {
+	display:none !important;
+}        
+        
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        .desktop #searchIcon,
+        .desktop .mobile-quick-tasks,
+        .desktop .mobile-type-ahead-container,
+        .desktop .mobile-doctor-type-ahead-container {
+            display: none;
+        }
+        .desktop .advanced-search-link {
+            margin: 0 auto 20px;
+        }
+        .desktop #docSearchInput::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: #aeaeae;
+            font-weight: 100;
+        }
+        .desktop #docSearchInput::-moz-placeholder { /* Firefox 19+ */
+            color: #AEAEAE;
+            font-weight: 100;
+        }
+        .desktop #docSearchInput:-ms-input-placeholder { /* IE 10+ */
+            color: #AEAEAE;
+            font-weight: 100;
+        }
+        .desktop #docSearchInput:-moz-placeholder { /* Firefox 18- */
+            color: #AEAEAE;
+            font-weight: 100;
+        }
+        .desktop .all-the-header {
+            display: block;
+            width: 100%;
+            background: #f6f1e5;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .desktop .container-hider {
+            pointer-events: all;
+        }
+
+        .desktop #site-logo {
+            width: 120px;
+            height: 120px;
+            background: url(https://s-media-cache-ak0.pinimg.com/originals/14/24/6e/14246e3d1370849f6f119910006be929.jpg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: inline-block;
+            margin: 20px;
+        }
+        .desktop a.logo-link {
+            text-decoration: none;
+        }
+        
+        .desktop .centered {
+            /*width: 900px;*/
+            margin: auto;
+        }
+
+        .desktop #primary_nav_wrap {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .desktop #primary_nav_wrap ul {
+            list-style: none;
+            float: left;
+            margin: 0;
+            padding: 25px 0 0;
+        }
+
+        .desktop #primary_nav_wrap ul li > a {
+            display: block;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 100;
+            font-size: 18px;
+            line-height: 32px;
+            padding: 0 15px;
+        }
+
+        .desktop #primary_nav_wrap ul li {
+            float: left;
+        }
+
+        .desktop #primary_nav_wrap ul li:last-child {
+            border-right: none;
+        }
+
+        .desktop #primary_nav_wrap ul li.current-menu-item {
+            background: #ddd;
+        }
+
+        .desktop #primary_nav_wrap ul ul {
+            display: none;
+            position: absolute;
+            top: 77px;
+            left: 164px;
+            right: 15%;
+            padding: 40px;
+            background: white;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border-top: 3px solid #a40046;
+        }
+
+        .desktop #primary_nav_wrap ul ul ul {
+            border-top: 3px solid #e3e3e3;
+        }
+
+        .desktop #primary_nav_wrap ul ul ul:hover {
+            border-top: 3px solid #a40046;
+        }
+
+        .desktop #primary_nav_wrap ul ul li {
+            float: none;
+            display: inline-block;
+        }
+
+        .desktop #primary_nav_wrap ul ul a {
+            line-height: 120%;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .desktop #primary_nav_wrap ul li.locations ul a:hover {
+            text-decoration: underline;
+        }
+
+        .desktop #primary_nav_wrap ul ul ul {
+            /*top: 0;*/
+            /*left: 100%;*/
+            display: inline-block;
+            position: relative;
+            width: 200px;
+            left: 0;
+            right: 0;
+            top: 0;
+            box-shadow: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #primary_nav_wrap ul li.active > ul {
+            display: block;
+        }
+
+        .desktop #primary_nav_wrap ul ul.explore li {
+            display: block;
+            margin: 0 0 20px 0;
+            border-left: 3px solid #e3e3e3;
+            padding: 0 20px;
+            transition: 0.10s;
+
+        }
+
+        .desktop #primary_nav_wrap ul ul.explore li:hover {
+            border-left: 3px solid #a40046;
+            margin-left: 5px;
+            transition: 0.10s;
+        }
+
+        .desktop li.dir.locations {
+            width: 32.33%;
+            box-sizing: border-box;
+        }
+
+        .desktop #primary_nav_wrap .heading {
+            font-size: 18px;
+            text-transform: uppercase;
+            margin: 0;
+            padding: 10px 0;
+            color: black;
+            font-weight: 300;
+        }
+
+        .desktop #primary_nav_wrap ul ul li ul li {
+            /* float: none; */
+            width: 100%;
+            display: block;
+        }
+
+        .desktop li.hasKids.active {
+            background: #a40046;
+        }
+
+        .desktop #primary_nav_wrap li.hasKids.active > a {
+            color: #ffffff;
+        }
+
+        .desktop ul.top-level-nav > li {
+            margin: 0;
+            padding: 15px 0;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
+        }
+
+        .desktop ul.explore p, .findADoctor p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 100;
+        }
+
+        .desktop ul.findADoctor li {
+            display: block;
+            width: 100%;
+        }
+        .desktop #primary_nav_wrap ul ul li ul.home-specialties {
+            width: 100%;
+        }
+        .desktop #primary_nav_wrap ul ul li ul.home-specialties li {
+            display: inline-block;
+            float: left;
+            width: 28%;
+        }
+        .desktop li.hasKids > a:after {
+            content: "+";
+            margin-left: 10px;
+            display: inline-block;
+            min-width: 12px;
+        }
+
+        .desktop li.hasKids.active > a:after {
+            content: "-";
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        /*search elements*/
+        .desktop .new-form-container {
+            display: block;
+            clear: both;
+            margin: 0 0 0 15px;
+            box-sizing: border-box;
+        }
+
+        .desktop .new-form-container input {
+            display: inline-block;
+            padding: 14px;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 79%;
+            background: url(http://www.endlessicons.com/wp-content/uploads/2015/08/search-icon-2.png) #fff;
+            background-size: 60px;
+            background-position: 100%;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            border: 1px solid #e3e3e3;
+        }
+
+        .desktop .new-form-container button[type="submit"] {
+            border-radius: 4px;
+            padding: 8px;
+            height: 46px;
+            margin: 0 0 0 14px;
+            width: 15%;
+            background: #a40046;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #fff;
+            border: none;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .desktop .new-form-container button[type="submit"]:hover {
+            transition: 0.15s;
+            background: #820138;
+        }
+
+        .desktop .doc-form-container {
+            display: inline-block;
+            clear: both;
+            margin: 20px 0 20px 0;
+            box-sizing: border-box;
+            width: 100%;
+            padding-right: 30px;
+        }
+
+        .desktop .doc-form-container input {
+            display: inline-block;
+            padding: 14px;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 80%;
+            background: #fff url(http://www.endlessicons.com/wp-content/uploads/2015/08/search-icon-2.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+            box-sizing: border-box;
+            border: 1px solid #e3e3e3;
+        }
+
+        .desktop .doc-form-container button[type="submit"] {
+            border-radius: 4px;
+            padding: 8px;
+            height: 46px;
+            margin: 0 0 0 14px;
+            width: 14%;
+            background: #a40046;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #fff;
+            border: none;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .desktop .doc-form-container button[type="submit"]:hover {
+            transition: 0.15s;
+            background: #820138;
+        }
+
+        .desktop .findADoctor li {
+            margin-right: 30px;
+            vertical-align: top;
+            display: block;
+        }
+
+        .desktop .home-specialties {
+            width: 100%;
+        }
+
+        .desktop .home-specialties li {
+            display: inline-block;
+            width: 27%;
+        }
+
+        .desktop #primary_nav_wrap  .home-specialties li > a:hover {
+            text-decoration: underline;
+        }
+
+        /*quick task elements*/
+        .desktop .new-quick-tasks {
+            background: #414141;
+        }
+
+        .desktop .new-quick-tasks a {
+            transition: 0.10s;
+            color: #ffffff;
+            text-transform: uppercase;
+            box-sizing: border-box;
+            width: 33.33%;
+            display: inline-block;
+            line-height: 60px;
+            text-align: center;
+            border-right: 1px solid #848484;
+            white-space: nowrap;
+            text-decoration: none;
+            font-size: 1em;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 100;
+        }
+
+        .desktop .new-quick-tasks a:hover {
+            background: #a40046;
+        }
+
+        .desktop .new-quick-tasks a:visited {
+            color: white;
+        }
+
+        .desktop .new-quick-tasks a:last-child {
+            border-right: none;
+        }
+
+        .desktop a#globalNav-myMarshfieldClinic {
+            position: relative;
+        }
+
+        .desktop a#globalNav-myMarshfieldClinic:before {
+            content: "Sign In";
+            position: absolute;
+            bottom: 18px;
+            font-size: 14px;
+            color: #a40046;
+            font-weight: 300;
+        }
+
+        @media screen and (max-width: 970px) {
+            .desktop #primary_nav_wrap ul ul li {
+                width: 100%;
+                text-align:left;
+            }
+
+            .desktop #site-logo {
+                width: 60px;
+                height: 75px;
+                background-size: cover;
+                background-position: 0 29px;
+                display: inline-block;
+                margin: 20px 0 20px 20px;
+            }
+
+            .desktop #primary_nav_wrap {
+                margin-bottom: 30px;
+            }
+
+            .desktop #primary_nav_wrap ul ul {
+                left: 0;
+                right: 0;
+            }
+        }
+        @media screen and (max-width: 815px) {
+            .desktop .centered #site-logo {
+                display: none;
+            }
+        }
+
+        /*MOBILE STYLES*/
+
+        .container-hider {
+            width: 100%;
+            /*height: 100vh;
+            overflow-y: scroll;
+            overflow-x: hidden;*/
+            position: relative;
+            pointer-events: none;
+        }
+        .mobile .advanced-search-link {
+            display: none;
+        }
+        .mobile .mobile-type-ahead-container,
+        .mobile .mobile-doctor-type-ahead-container {
+            transition: 0.3s;
+            height: 0;
+            background: #414141;
+            color: #ffffff;
+        }
+        .mobile .mobile-type-ahead-container ul,
+        .mobile .mobile-doctor-type-ahead-container ul {
+            margin: 0;
+            padding: 0;
+        }
+        .mobile .mobile-type-ahead-container ul a,
+        .mobile .mobile-doctor-type-ahead-container ul a{
+            color: #ffffff;
+            border-bottom: 1px solid #5d5d5d;
+            font-size: 16px;
+        }
+        .mobile li {
+            list-style: none;
+        }
+
+        .mobile .all-the-header {
+            transition: 0.2s;
+            position: absolute;
+            background: #ffffff;
+            width: 100%;
+            min-height: 100%;
+            left: 100%;
+            box-shadow: none;
+            top: 60px;
+        }
+
+        .mobile .all-the-header.open {
+            left: 0;
+        }
+
+        .mobile .new-form-container {
+            position: absolute;
+            width: 100%;
+            padding: 0;
+            box-sizing: border-box;
+            top: 0;
+            margin: 0;
+        }
+
+        .mobile button#newSearchButton {
+            display: none;
+        }
+
+        .mobile ul.top-level-nav {
+            margin: 50px 0 0 0;
+            border-top: none;
+            padding: 0;
+        }
+
+        .mobile .open input#newSearchInput {
+            width: 100%;
+            border: none;
+            line-height: 50px;
+            padding: 0 15px;
+            border-bottom: 1px solid #a0a0a0;
+            border-radius: 0;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+            font-size: 17px;
+            background-color: ivory;
+            font-weight: 100;
+            font-family: inherit;
+            text-transform: none;
+        }
+
+        .mobile li > a, .mobile .new-quick-tasks > a {
+            padding: 15px 15px;
+            display: block;
+            text-decoration: none;
+            text-transform: capitalize;
+            border-bottom: 1px solid #e3e3e3;
+            font-weight: 100;
+            color: #414141;
+            font-size: 20px;
+        }
+
+        li.hasKids.active {
+            background: #414141;
+        }
+
+        .mobile li.hasKids.active > a {
+            color: #ffffff;
+        }
+
+        .mobile #primary_nav_wrap {
+            margin-bottom: 0;
+        }
+
+        .mobile #primary_nav_wrap ul.home-specialties li > a {
+            padding: 9px 30px;
+        }
+
+        .mobile #primary_nav_wrap ul ul {
+            display: none;
+            position: relative;
+            padding: 0;
+            background: #ffffff;
+            width: 100%;
+            color: #ffffff;
+            border-top: none;
+            border-bottom: #666666;
+        }
+        .mobile #primary_nav_wrap .first a {
+            border: none !important;
+            color: #a40046;
+            font-size: 14px;
+        }
+        .mobile #primary_nav_wrap ul ul li > p {
+            display: none;
+        }
+
+        .mobile #primary_nav_wrap ul ul.explore li {
+            display: block;
+            margin: 0;
+            border-left: none;
+            padding: 3px 15px;
+            border-bottom: 1px solid #d2d2d2;
+        }
+
+        .mobile #primary_nav_wrap .heading {
+            text-transform: capitalize;
+            margin: 0;
+            font-weight: 300;
+            font-size: 14px;
+        }
+
+        .mobile .home-specialties li {
+            display: block;
+            width: 100%;
+        }
+
+        .mobile .home-specialties li > a {
+            display: block;
+            width: 100%;
+            padding: 8px;
+        }
+        .mobile li.hasKids ul .dir.locations.first a.heading {
+            background: #e3e3e3;
+            color: #414141 !important;
+            font-size: 16px !important;
+            font-weight: 700 !important;
+        }
+        .mobile li.dir.locations.first > ul {
+            display: block !important;
+        }
+        .mobile-header {
+            display: block;
+            min-height: 60px;
+            background: #a40046;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        .mobile-logo {
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYAAAJ9CAYAAAC4kz86AAAACXBIWXMAAAsTAAALEwEAmpwYAAAKxmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarZZnUFPpHsb/55x0ElpCKFJCb4IUgQDSawAF6WAjJJAEQggpKNiVxRVcCyIiWFZ0BUTBtQCyFsSCFcHeF2RRUNfFgg2V+4El7J0798Oduf+ZM+c3z7zv8z7vOV8eAOogVyoVo5oAORKFLDYskJWcksoi9gEB8KABVGBzeXJpQExMFADAxPsfgwB8uAMIAMBNB65UKob/bbT4GXIeABIDAOl8OS8HADkKgHTxpDIFAFYEAOYLFVIFAFYHAAxZckoqAHYCABiCce4GAEb6OP8BAAxZfGwQAPYJgETlcmUCACoOAFj5PIECgGoBAE4SvkgCQI0HAF+ekMsHoJYDwNScnFw+ALUdAGzS/+Ej+DfPdJUnlytQ8fhdAACAFCySS8XcAvh/T45YOXGGGQBQhbLwWACwAkDqsnMjVSxJnxU9wSI+wAQLleEJE8yTB6VOMJ8bHDnByuyEgAnmyib3ihSc+AmW5caq/CXiWVEq/wyOijPkIXETnCkK5UxwoTA+aYLzRYmzJlieHRc5uSZIpcuUsarMmbJQ1R1z5JPZeNzJsxTC+PDJDMmqPPyM4BCVLklQrZcqAlWeUnHMZH5xmEqX58ep9ipk8So9ixsRM+kTo/o+EA9CUIIE+JABMkiHXBCDAlgQDCKQgxTEwIUCAEXGIgUAQFCutEAmEggVrACpVJzB4kh4jlNZLk7OHgDJKams8V/+jgkIACDMy5NaXjuAZwkAIpjUuOYAx58B0D9MauZvAagbAU5285Sy/HENBwCABwpoAAP0wRjMwQYcwAXcwRv8IQQiIBriIQXmAw+EkAMyWAhLYCUUQylshC1QBbtgD9TBQTgMLXACzsAFuALdcBseQi8MwEsYhg8wiiAIEaEhdEQfMUEsEXvEBWEjvkgIEoXEIilIGiJAJIgSWYKsRkqRMqQK2Y3UI78ix5EzyCWkB7mP9CFDyFvkC4qhVJSBGqFW6DSUjQagkWg8Og8VoHloIVqErkcr0Rr0ANqMnkGvoLfRXvQlOoIBpoYxMVPMAWNjQVg0loplYjJsGVaCVWA1WCPWhnViN7Fe7BX2GUfA0XEsnAPOGxeOS8DxcHm4Zbh1uCpcHa4Zdw53E9eHG8Z9x9Pwhnh7vBeeg0/GC/AL8cX4Cvw+/DH8efxt/AD+A4FAYBKsCR6EcEIKIYuwmLCOsIPQRGgn9BD6CSNEIlGfaE/0IUYTuUQFsZi4jXiAeJp4gzhA/ERSI5mQXEihpFSShLSKVEHaTzpFukF6Thola5ItyV7kaDKfXEDeQN5LbiNfJw+QRylaFGuKDyWekkVZSamkNFLOUx5R3qmpqZmpearNVhOprVCrVDukdlGtT+0zVZtqRw2izqUqqeuptdR26n3qOxqNZkXzp6XSFLT1tHraWdoT2id1urqjOkedr75cvVq9Wf2G+msNsoalRoDGfI1CjQqNIxrXNV5pkjWtNIM0uZrLNKs1j2ve1RzRoms5a0Vr5Wit09qvdUlrUJuobaUdos3XLtLeo31Wu5+O0c3pQXQefTV9L/08fYBBYFgzOIwsRinjIKOLMayjrTNdJ1FnkU61zkmdXibGtGJymGLmBuZh5h3mF10j3QDdDN21uo26N3Q/6k3R89fL0CvRa9K7rfdFn6Ufop+tv0m/Rf+xAc7AzmC2wUKDnQbnDV5NYUzxnsKbUjLl8JQHhqihnWGs4WLDPYZXDUeMjI3CjKRG24zOGr0yZhr7G2cZlxufMh4yoZv4mohMyk1Om7xg6bACWGJWJesca9jU0DTcVGm627TLdNTM2izBbJVZk9ljc4o52zzTvNy8w3zYwsRipsUSiwaLB5ZkS7al0HKrZaflRytrqySrNVYtVoPWetYc60LrButHNjQbP5s8mxqbW7YEW7Zttu0O22471M7NTmhXbXfdHrV3txfZ77DvmYqf6jlVMrVm6l0HqkOAQ75Dg0OfI9MxynGVY4vj62kW01KnbZrWOe27k5uT2Gmv00NnbecI51XObc5vXexceC7VLrdcaa6hrstdW13fTLefnjF95/R7bnS3mW5r3Drcvrl7uMvcG92HPCw80jy2e9xlM9gx7HXsi554z0DP5Z4nPD97uXspvA57/eXt4J3tvd97cIb1jIwZe2f0+5j5cH12+/T6snzTfH/27fUz9eP61fg99Tf35/vv838eYBuQFXAg4HWgU6As8FjgxyCvoKVB7cFYcFhwSXBXiHZIQkhVyJNQs1BBaEPocJhb2OKw9nB8eGT4pvC7HCMOj1PPGY7wiFgacS6SGhkXWRX5NMouShbVNhOdGTFz88xHsyxnSWa1REM0J3pz9OMY65i8mN9mE2bHzK6e/SzWOXZJbGccPW5B3P64D/GB8RviHybYJCgTOhI1Eucm1id+TApOKkvqTZ6WvDT5SopBiiilNZWYmpi6L3VkTsicLXMG5rrNLZ57Z571vEXzLs03mC+ef3KBxgLugiNp+LSktP1pX7nR3BruSDonfXv6MC+It5X3ku/PL+cPZfhklGU8z/TJLMscFPgINguGhH7CCuErUZCoSvQmKzxrV9bH7Ojs2uwxcZK4KYeUk5ZzXKItyZacyzXOXZTbI7WXFkt787zytuQNyyJl++SIfJ68VcFQSBVXlTbKH5R9+b751fmfFiYuPLJIa5Fk0dUCu4K1Bc8LQwt/WYxbzFvcscR0ycolfUsDlu5ehixLX9ax3Hx50fKBFWEr6lZSVmavvLbKaVXZqverk1a3FRkVrSjq/yHsh4Zi9WJZ8d013mt2/Yj7UfRj11rXtdvWfi/hl1wudSqtKP26jrfu8k/OP1X+NLY+c33XBvcNOzcSNko23tnkt6muTKussKx/88zNzeWs8pLy91sWbLlUMb1i11bKVuXW3sqoytZtFts2bvtaJay6XR1Y3bTdcPva7R938Hfc2Om/s3GX0a7SXV9+Fv18b3fY7uYaq5qKPYQ9+Xue7U3c2/kL+5f6fQb7Svd9q5XU9tbF1p2r96iv32+4f0MD2qBsGDow90D3weCDrY0OjbubmE2lh+CQ8tCLX9N+vXM48nDHEfaRxqOWR7cfox8raUaaC5qHW4Qtva0prT3HI453tHm3HfvN8bfaE6Ynqk/qnNxwinKq6NTY6cLTI+3S9ldnBGf6OxZ0PDybfPbWudnnus5Hnr94IfTC2c6AztMXfS6euOR16fhl9uWWK+5Xmq+6XT12ze3asS73rubrHtdbuz2723pm9Jy64XfjzM3gmxducW5duT3rds+dhDv37s6923uPf2/wvvj+mwf5D0YfrniEf1TyWPNxxRPDJzW/2/7e1Ovee7IvuO/q07inD/t5/S//kP/xdaDoGe1ZxXOT5/WDLoMnhkKHul/MeTHwUvpy9FXxn1p/bn9t8/roX/5/XR1OHh54I3sz9nbdO/13te+nv+8YiRl58iHnw+jHkk/6n+o+sz93fkn68nx04Vfi18pvtt/avkd+fzSWMzYm5cq4AACAAQCamQnwthaAlgJA7wagqI935r+7PjLZ+v8bj/dqAABwB6j1B0hYARDVDrCzHcByxXi3jgGAeH9AXV1Vz98jz3R1GfeiygDwn8bG3hkBENsAvsnGxkZ3jI192wuA3Qdozxvv6gAABE2AMmtdKs78Ws6c/+jM/wIeOQr6LDX7sQAAOjJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIKICAgICAgICAgICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgICAgICAgICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICAgICAgICAgICB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyI+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+QWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCk8L3htcDpDcmVhdG9yVG9vbD4KICAgICAgICAgPHhtcDpDcmVhdGVEYXRlPjIwMTctMDgtMTZUMTE6MDU6MTEtMDU6MDA8L3htcDpDcmVhdGVEYXRlPgogICAgICAgICA8eG1wOk1ldGFkYXRhRGF0ZT4yMDE3LTA4LTE2VDExOjA1OjExLTA1OjAwPC94bXA6TWV0YWRhdGFEYXRlPgogICAgICAgICA8eG1wOk1vZGlmeURhdGU+MjAxNy0wOC0xNlQxMTowNToxMS0wNTowMDwveG1wOk1vZGlmeURhdGU+CiAgICAgICAgIDx4bXBNTTpJbnN0YW5jZUlEPnhtcC5paWQ6ODQzMTI1ZDgtMjJiNy00ZGI0LTkxMmQtYTMxOGQ2MTYxNGIwPC94bXBNTTpJbnN0YW5jZUlEPgogICAgICAgICA8eG1wTU06RG9jdW1lbnRJRD5hZG9iZTpkb2NpZDpwaG90b3Nob3A6MGVlN2Y1NjYtYzMyYi0xMTdhLWI2ZjAtZWM0ZDE3NzM1OWNmPC94bXBNTTpEb2N1bWVudElEPgogICAgICAgICA8eG1wTU06T3JpZ2luYWxEb2N1bWVudElEPnhtcC5kaWQ6OTRiZDkwNDAtMzY2OC00MWQ4LWFmMzEtY2FkMjMyMGQyYWZmPC94bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ+CiAgICAgICAgIDx4bXBNTTpIaXN0b3J5PgogICAgICAgICAgICA8cmRmOlNlcT4KICAgICAgICAgICAgICAgPHJkZjpsaSByZGY6cGFyc2VUeXBlPSJSZXNvdXJjZSI+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDphY3Rpb24+Y3JlYXRlZDwvc3RFdnQ6YWN0aW9uPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6aW5zdGFuY2VJRD54bXAuaWlkOjk0YmQ5MDQwLTM2NjgtNDFkOC1hZjMxLWNhZDIzMjBkMmFmZjwvc3RFdnQ6aW5zdGFuY2VJRD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OndoZW4+MjAxNy0wOC0xNlQxMTowNToxMS0wNTowMDwvc3RFdnQ6d2hlbj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OnNvZnR3YXJlQWdlbnQ+QWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCk8L3N0RXZ0OnNvZnR3YXJlQWdlbnQ+CiAgICAgICAgICAgICAgIDwvcmRmOmxpPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmFjdGlvbj5zYXZlZDwvc3RFdnQ6YWN0aW9uPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6aW5zdGFuY2VJRD54bXAuaWlkOjg0MzEyNWQ4LTIyYjctNGRiNC05MTJkLWEzMThkNjE2MTRiMDwvc3RFdnQ6aW5zdGFuY2VJRD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OndoZW4+MjAxNy0wOC0xNlQxMTowNToxMS0wNTowMDwvc3RFdnQ6d2hlbj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OnNvZnR3YXJlQWdlbnQ+QWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCk8L3N0RXZ0OnNvZnR3YXJlQWdlbnQ+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDpjaGFuZ2VkPi88L3N0RXZ0OmNoYW5nZWQ+CiAgICAgICAgICAgICAgIDwvcmRmOmxpPgogICAgICAgICAgICA8L3JkZjpTZXE+CiAgICAgICAgIDwveG1wTU06SGlzdG9yeT4KICAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9wbmc8L2RjOmZvcm1hdD4KICAgICAgICAgPHBob3Rvc2hvcDpDb2xvck1vZGU+MzwvcGhvdG9zaG9wOkNvbG9yTW9kZT4KICAgICAgICAgPHBob3Rvc2hvcDpJQ0NQcm9maWxlPkRpc3BsYXk8L3Bob3Rvc2hvcDpJQ0NQcm9maWxlPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICAgICA8dGlmZjpYUmVzb2x1dGlvbj43MjAwMDAvMTAwMDA8L3RpZmY6WFJlc29sdXRpb24+CiAgICAgICAgIDx0aWZmOllSZXNvbHV0aW9uPjcyMDAwMC8xMDAwMDwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6UmVzb2x1dGlvblVuaXQ+MjwvdGlmZjpSZXNvbHV0aW9uVW5pdD4KICAgICAgICAgPGV4aWY6Q29sb3JTcGFjZT42NTUzNTwvZXhpZjpDb2xvclNwYWNlPgogICAgICAgICA8ZXhpZjpQaXhlbFhEaW1lbnNpb24+NjMwPC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjYzNzwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8P3hwYWNrZXQgZW5kPSJ3Ij8+UiUqYgAAACBjSFJNAABtdQAAc6AAAPzdAACDZAAAcOgAAOxoAAAwPgAAEJDk7JnqAABIaUlEQVR42uzde5CleX3f93ezy4IRIgjQnsaRI8dlKxdFp2VKcZJyqlIVa85YSansqlQlVarpKRlX4shlW05Ndy5K5KhKwkZMD7qAS9gCZKZHXGxBhASC6ZEwCAQWAkQfLTcBYsVy6bO77H1ndmem++SP53nUZ55+zulzP7/L+1XV1Tu9cznP5Zzf5/n+bmv9fh9JkiTF7zmeAkmSJIOdJEmSDHaSJEky2EmSJMlgJ0mSZLCTJEmSwU6SJEkGO0mSJBnsJEmSDHaSJEky2EmSJMlgJ0mSJIOdJEmS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') no-repeat center;
+            background-size: 40px;
+            height: 60px;
+            width: 60px;
+        }
+
+        .mobile .hammy {
+            position: absolute;
+            right: 14px;
+            top: 14px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .mobile span.hamburger-patty {
+            transition: 0.3s;
+            position: absolute;
+            width: 100%;
+            border-bottom: 2px solid white;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .mobile span.hamburger-patty:before {
+            transition: 0.3s;
+            content: ' ';
+            position: absolute;
+            top: -8px;
+            width: 100%;
+            border-bottom: 2px solid white;
+        }
+
+        .mobile span.hamburger-patty:after {
+            transition: 0.3s;
+            content: ' ';
+            position: absolute;
+            bottom: -10px;
+            width: 100%;
+            border-bottom: 2px solid white;
+        }
+
+        .mobile .open span.hamburger-patty {
+            transition: 0.3s;
+            position: absolute;
+            width: 100%;
+            border-bottom: 2px solid white;
+            top: 50%;
+            transform: rotate(135deg) translateY(-50%)
+        }
+
+        .mobile .open span.hamburger-patty:before {
+            transition: 0.3s;
+            content: ' ';
+            position: absolute;
+            top: -15px;
+            width: 100%;
+            border-bottom: 2px solid rgba(255, 255, 255, 0);
+        }
+
+        .mobile .open span.hamburger-patty:after {
+            transition: 0.3s;
+            content: ' ';
+            position: absolute;
+            bottom: -2px;
+            width: 100%;
+            border-bottom: 2px solid white;
+            transform: rotate(-90deg);
+        }
+
+        #searchIcon {
+            position: absolute;
+            top: 7px;
+            right: 15px;
+            display: inline-block;
+            background-color: #414141;
+            width: 12px;
+            height: 3px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            margin: 24px 1px 0 24px;
+            -webkit-transition: all 200ms ease-in-out;
+            transition: all 200ms ease-in-out;
+        }
+        #searchIcon:before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: #414141;
+            -webkit-transition: all 200ms ease-in-out;
+            transition: all 200ms ease-in-out;
+        }
+        #searchIcon:after {
+            position: absolute;
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-top: -8px;
+            margin-left: -18px;
+            box-shadow: 0 0 0 2px #414141 inset;
+            -webkit-transition: all 200ms ease-in-out;
+            transition: all 200ms ease-in-out;
+        }
+        #searchIcon.transform {
+            width: 21px;
+            margin: 10px 0 0;
+            top: 14px;
+        }
+        #searchIcon.transform:before {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+        #searchIcon.transform:after {
+            opacity: 0;
+            margin-top: 10px;
+            margin-left: 24px;
+            width: 0;
+            height: 0;
+        }
+
+        .mobile .mobile-quick-tasks {
+            display: inline-flex;
+            flex-direction: row;
+            top: 60px;
+            position: absolute;
+            width: 100%;
+            background: #414141;
+        }
+        .mobile-quick-task-item {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .mobile-quick-task-item:not(:last-child) {
+            border-right: 1px solid #656565;
+        }
+
+        .mobile .mobile-quick-task-item > a {
+            padding: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            font-weight: 100;
+            font-size: 14px;
+        }
+        .mobile .container-hider.open {
+            pointer-events: all;
+        }
+        .mobile .doc-form-container {
+            display: none;
+        }
+
+        @media screen and (max-height: 900px) {
+            .mobile .all-the-header {
+                position: absolute;
+            }
+        }
+        
+@media screen and (max-width: 852px) and (min-width:736px) {
+   /*.desktop  { padding:0 10px;}*/
+   .desktop .top-level-nav .hasKids > a[id*='globalNav'] { padding:0 9px !important; }
+} 
+
+@media screen and (min-width: 736px)
+{
+	.topSpacer { height:224px !important; }
+}     
+
+@media screen and (min-width: 970px) and (max-width:1030px) {       
+    .desktop #primary_nav_wrap ul ul ul
+    {
+	    width:100%;
+    } 
+}
+
+/* STATIC position at the top of the page, doesn't stay fixed on the screen, you can scroll past it */
+@media screen and (max-width: 735px) {
+   .mobile .centered { text-align:left;  }
+   .mobile-header { position:static; }
+   .mobile .mobile-quick-tasks { position:static; z-index:1100; }
+   .mobile .container-hider.open { position: relative; visibility:visible; }
+   .container-hider { margin-top:0px; margin-top:0px; z-index:1200; position:fixed; }
+   .mobile .container-hider.open { position:relative; visibility:visible; }
+   .mobile .all-the-header { top:0px; }
+   /*.mobile .all-the-header { display:none; }*/
+   .mobile .all-the-header.open { top:0px; display:inline-block; }
+} 
+
+/* How to get it to a FIXED position at the top of every site page */
+@media screen and (max-width: 735px) {
+    .mobile-header { position:fixed !important; }
+    .mobile .mobile-quick-tasks { position:fixed !important; }
+    #global-header-container { display:inline-block; }
+    .mobile .container-hider.open { position:fixed !important; height:-webkit-fill-available; overflow-y:scroll; overflow-x:hidden;}
+    .mobile .all-the-header.open { top:45px; }
+    .mobile-header { z-index:1500 !important; }
+    .mobile .all-the-header { top:45px !important; }
+}
+        
+</style>
+
+<script>
+$(document).ready(function () {
+/* This would break the existing Header... */
+    /*$("a[href^='#']").off();*/ 
+    
+    //NOT SURE IF NEEDED????
+    //$('.open .new-form-container::after').on('click', function () {
+    //    $('.all-the-header').removeClass('open');
+    //});
+    //$('html').click(function () {
+    //    $('.top-level-nav > li.hasKids.active').removeClass('active');
+    //}); 
+    
+    $('.hammy').on('click', function () {
+        $('.mobile-header, .all-the-header, .container-hider').toggleClass('open');
+        //closeTypeAhead();
+    });    
+    
+    
+	var s_pageName = $(location).attr('pathname');
+	
+	if (s_pageName === '/') {
+		s_pageName = 'marshfieldclinic|home|index';  // if we are at the root, set the pageName to this value
+	};
+    
+    $('html').click(function () {
+        $('.top-level-nav > li.hasKids.active').removeClass('active');
+    });
+    
+    //$('body').addClass('header-b');
+
+    $('.top-level-nav').click(function (event) {
+        event.stopPropagation();
+    });
+    $('.top-level-nav > li.hasKids > a').click(function (event) {
+        var $clickedLi = $(this);
+        $clickedLi.parent().siblings().removeClass('active');
+        if ($clickedLi.parent().hasClass('active')) {
+            $clickedLi.parent().removeClass('active');
+        } else {
+            $clickedLi.parent().addClass('active');
+        }
+    });
+    $('.dir.locations > a.heading').on('click', function(){
+        if(!$(this).hasClass('active')){
+            $('a.heading').removeClass('active');
+            $(this).addClass('active');
+            $(this).parent().children('ul').addClass('active');
+        }else{
+            $(this).removeClass('active');
+            $('body').find('ul').removeClass('active');
+        }
+
+    });    
+    
+  
+    $('.header-test-button').click(function (event) {
+        event.preventDefault();
+         if($('#newSearchInput').val() !== ''){ 
+             //  set tracking vars 
+             var s=s_gi(s_account); 
+             s.linkTrackVars='pageName,eVar31,events'; 
+             s.linkTrackEvents='event25'; 
+             s.events='event25'; 
+             s.pageName= s_pageName; 
+             s.eVar31='newSearchButton'; 
+             s.tl(this,'o','button name'); 
+             // send to search 
+             window.location = '/Search/?k=' + $('#newSearchInput').val(); 
+         } 
+
+    });
+        
+
+        $('#newSearchInput').keydown(function (e) {
+        if (e.keyCode == 13 && $('#newSearchInput').val() !== '') {
+            //  set tracking vars 
+            var s=s_gi(s_account); 
+            s.linkTrackVars='pageName,eVar31,events'; 
+            s.linkTrackEvents='event25'; 
+            s.events='event25'; 
+            s.pageName= s_pageName; 
+            s.eVar31='newSearchInput'; 
+            s.tl(this,'o','button name'); 
+        
+            var searchTerm = $('#newSearchInput').val();
+            window.location.href = '/Search/?k=' + searchTerm;
+            return false;
+        }
+        else {
+            return true;
+        }
+        });
+
+       $('.top-level-nav > li.hasKids > ul > li > div > button').click(function (event) { 
+        event.preventDefault();
+         if($('#docSearchInput').val() !== ''){ 
+             //  set tracking vars 
+             var s=s_gi(s_account); 
+             s.linkTrackVars='pageName,eVar31,events'; 
+             s.linkTrackEvents='event25'; 
+             s.events='event25'; 
+             s.pageName= s_pageName; 
+             s.eVar31='docSearchButton'; 
+             s.tl(this,'o','button name'); 
+  
+             // send to search 
+             window.location = '/doctors/search/?k=' + $('#docSearchInput').val(); 
+         } 
+        });
+
+/* keyup was not working due to event listener conflicts 
+$(document).on('keyup', '#docSearchInput', function (event) { 
+});*/
+        $('#docSearchInput').keydown(function (e) {
+        if (e.keyCode == 13 && $('#docSearchInput').val() !== '') {
+             //  set tracking vars 
+             var s=s_gi(s_account); 
+             s.linkTrackVars='pageName,eVar31,events'; 
+             s.linkTrackEvents='event25'; 
+             s.events='event25'; 
+             s.pageName= s_pageName; 
+             s.eVar31='docSearchInput'; 
+             s.tl(this,'o','button name');
+                     
+            var searchTerm = $('#docSearchInput').val();
+            window.location.href = '/doctors/search/?k=' + searchTerm;
+            return false;
+        }
+        else {
+            return true;
+        }
+        });
+        
+     $('#newSearchInput').click(function(){ 
+         $(this).val(''); 
+     }); 
+
+     $('#docSearchInput').click(function(){ 
+         $(this).val(''); 
+     }); 
+        
+    $('.top-level-nav > li.hasKids > ul.explore > li').click(function (event) {
+        window.location=$(this).find("a").attr("href"); 
+        return false;
+    });
+    
+    function evaluateWindow(){
+        var body = $('body');
+        if (window.innerWidth < 736) {
+            $('#globalNav-doctorsButton').attr('href', '/doctors');
+            body.addClass('mobile');
+            body.removeClass('desktop');
+            $('.mobile-header').show();
+        } else {
+            $('#globalNav-doctorsButton').attr('href', '#');
+            body.removeClass('mobile');
+            body.addClass('desktop');
+            $('.mobile-header').hide();
+        }
+    }    
+    
+    $(window).resize(function () {
+        evaluateWindow();
+    });    
+    evaluateWindow();
+    
+
+});
+/*setTimeout(function(){*/
+/*}, 500);*/
+</script>
+
+
+
+<div class="mobile-quick-tasks">
+    <div class="mobile-quick-task-item"><a href="/care-my-way">Care My Way</a></div>
+    <div class="mobile-quick-task-item"><a href="/Patient-Resources/billing">Pay a Bill</a></div>
+    <div class="mobile-quick-task-item"><a href="/renewprescription">Refill Rx</a></div>
+</div>
+
+<div style="display: none;" class="mobile-header">
+    <div class="mobile-logo"></div>
+    <div class="hammy">
+        <span class="hamburger-patty"></span>
+    </div>
+</div>
+
+<div id="global-header-container">
+    <div class="container-hider">
+        <div class="all-the-header">
+            <div class="centered">
+                <a id="globalNav-siteLogo" class="logo-link" href="https://www.marshfieldclinic.org/">
+                    <div id="site-logo"></div>
+                </a>
+                <nav id="primary_nav_wrap">
+                <ul class="top-level-nav">
+                    <li class="hasKids"><a id="globalNav-exploreButton" href="#">Explore</a>
+                        <ul class="explore">
+                            <li class="first"><a id="globalNav-billing" class="heading" href="/Patient-Resources/billing">Pay your
+                                bill</a>
+                                <p>Use our Quick Pay system, log into My Marshfield Clinic, or get the address to mail
+                                    in a
+                                    payment</p>
+                            </li>
+                            <li class="first"><a id="globalNav-careers" class="heading" href="/careers">Careers</a>
+                                <p>Join a world-class health care system</p>
+                            </li>
+                            <li class="first"><a id="globalNav-referralCenter" class="heading" href="/referral-center">Refer a
+                                patient</a>
+                                <p>MC CARES provides same day transfers and referrals to any hospital.</p>
+                            </li>
+                            <li class="first"><a id="globalNav-pateintResources" class="heading" href="/patient-resources">Patient
+                                Resources</a>
+                                <p>Access appointments, medical records, bills and financial assistance</p>
+                            </li>
+                            <li class="first"><a id="globalNav-shine365" target="_blank" class="heading" href="http://shine365.marshfieldclinic.org/">Our Blog -
+                                Shine365</a>
+                                <p>Get wellness and healthy living advice every day</p>
+                            </li>
+                            <li class="first"><a id="globalNav-specialties" class="heading" href="/specialties">Specialties</a>
+                                <p>Learn about medical care in more than 80 specialties</p>
+                            </li>
+                            <li class="first"><a id="globalNav-healthLibrary" class="heading" href="/health-library">Health
+                                Library</a>
+                                <p>Find answers to health questions, symptoms and medications</p>
+                            </li>
+                            <li class="first"><a id="globalNav-giving" class="heading" href="/giving">Giving</a>
+                                <p>Support our mission with a gift or by attending an event</p>
+                            </li>
+                            <li class="first"><a id="globalNav-news" class="heading" href="/news">Newsroom</a>
+                                <p>Follow us in the news to see how we’re changing health care</p>
+                            </li>
+                            <li class="first"><a id="globalNav-professionals" class="heading" href="/professionals">Medical </a>
+                                <p>Make a patient referral, access medical education and research</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="hasKids"><a id="globalNav-locationsButton" href="#">Locations</a>
+                        <ul>
+                            <!--URGENT CARE LINKS-->
+                            <li class="dir locations first"><a id="globalNav-urgentCareHeading" class="heading" href="#">Urgent Care</a>
+                                <ul>
+                                    <li class="second">
+                                        <a id="globalNav-urgentCare-eauClaireCenter" href="/locations/centers/eau claire center">Eau Claire Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-urgentCare-minoquaCenter" href="/locations/centers/minocqua center">Minocqua Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-urgentCare-ladysmithCenter" href="/locations/centers/ladysmith center">Ladysmith
+                                            Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-urgentCare-riceLakeCenter" href="/locations/centers/rice lake center">Rice
+                                            Lake Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-urgentCare-lakeHailieCenter" href="/locations/centers/lake hallie center">Lake Hallie Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-urgentCare-wausauCenter" href="/locations/centers/wausau center">Wausau
+                                            Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-urgentCare-lakeviewMedicalCenter" href="https://www.lakeviewmedical.com" target="_blank">Lakeview Medical
+                                            Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-urgentCare-westonCenter" href="/locations/centers/weston center">Weston
+                                            Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-urgentCare-marshfieldCenter" href="/locations/centers/marshfield center">Marshfield Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-urgentCare-wisconsinRapidsCenter" href="/locations/centers/wisconsin rapids center">Wisconsin Rapids
+                                            Center</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--HOSPITALS LINKS-->
+                            <li class="dir locations first"><a id="globalNav-hospitalsHeading" class="heading" href="#">Hospitals</a>
+                                <ul>
+                                    <li class="second">
+                                        <a id="globalNav-hospital-marshfieldMedicalCenter" href="/locations/centers/marshfield%20medical%20center">Marshfield Medical
+                                            Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-hospital-marshfieldChildrensHospital" href="/locations/centers/children's%20hospital">Marshfield Children's
+                                            Hospital</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-hospital-flambeauHospital" href="http://ministryhealth.org/FH/home.nws" target="_blank">Flambeau Hospital - Park
+                                            Falls</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-hospital-lakeviewMedicalCenter" href="https://www.lakeviewmedical.com" target="_blank">Lakeview Medical Center - Rice
+                                            Lake</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--CLINIC LINKS-->
+                            <li class="dir locations first"><a id="globalNav-clinicsHeading" class="heading" href="#">Clinics</a>
+                                <ul>
+                                    <li class="second">
+                                        <a id="globalNav-clinic-eauClairCenter" href="/locations/centers/eau claire center">Eau
+                                            Claire Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-clinic-wausauCenter" href="/locations/centers/wausau center">Wausau
+                                            Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-clinic-marshfieldCenter" href="/locations/centers/marshfield center">Marshfield
+                                            Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-clinic-westonCenter" href="/locations/centers/weston center">Weston
+                                            Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-clinic-stevensPointCenter" href="/locations/centers/stevens point center">Stevens Point Center</a>
+                                    </li>
+                                    <li class="second">
+                                        <a id="globalNav-clinic-seeAll" href="/locations#clinics">See all &gt;</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="hasKids"><a id="globalNav-doctorsButton" href="#">Doctors</a>
+                        <ul class="findADoctor">
+                            <li>
+                                <p class="heading">Quick Doctor Search</p>
+                                <p>Type a condition, name, specialty, location, or first letter of last name.</p>
+                                <div class="doc-form-container">
+                                    <input id="docSearchInput" name="docSearchInputField" placeholder="condition, name, specialty, location, or first letter of last name" title="search text box" type="text" autocomplete="off">
+                                    <div class="mobile-doctor-type-ahead-container">
+                                        <div class="mobile-doctor-type-ahead-content"></div>
+                                    </div>
+                                    <button id="docSearchButton" class="doc-test-button" type="submit">SEARCH</button>
+                                </div>
+                                <div class="advanced-search-link"><a href="/doctors/">Advanced Doctor Search</a></div>
+                            </li>
+                            <li>
+                                <p class="heading">Select a specialty</p>
+                                <ul class="home-specialties">
+                                    <li><a id="globalNav-specialties-AllergyandAsthma" href="/Doctors/Search/?k=Allergy and Asthma">Allergy and Asthma</a>
+                                        <a id="globalNav-specialties-Anesthesia" href="/Doctors/Search/?k=Anesthesia">Anesthesia</a>
+                                        <a id="globalNav-specialties-Audiology" href="/Doctors/Search/?k=Audiology">Audiology</a>
+                                        <a id="globalNav-specialties-BariatricSurgery" href="/Doctors/Search/?k=Bariatric Surgery">Bariatric Surgery</a>
+                                        <a id="globalNav-specialties-CardiologyHeartCare" href="/Doctors/Search/?k=Cardiology">Cardiology (Heart Care)</a>
+                                        <a id="globalNav-specialties-Dental" href="/Doctors/Search/?k=Dental">Dental</a>
+                                        <a id="globalNav-specialties-Dermatology" href="/Doctors/Search/?k=Dermatology">Dermatology</a>
+                                        <a id="globalNav-specialties-EarNoseandThroatENT" href="/Doctors/Search/?k=Ear Nose and Throat (ENT)">Ear Nose and Throat
+                                            (ENT)</a>
+                                        <a id="globalNav-specialties-EmergencyMedicine" href="/Doctors/Search/?k=Emergency Medicine">Emergency Medicine</a>
+                                        <a id="globalNav-specialties-EndocrinologyDiabetesandMetabolism" href="/Doctors/Search/?k=Endocrinology">Endocrinology (Diabetes and
+                                            Metabolism)</a>
+                                        <a id="globalNav-specialties-FamilyMedicine" href="/Doctors/Search/?k=Family Medicine">Family Medicine</a>
+                                        <a id="globalNav-specialties-GastroenterologyDigestiveCare" href="/Doctors/Search/?k=Gastroenterology">Gastroenterology (Digestive
+                                            Care)</a>
+                                        <a id="globalNav-specialties-GeneralSurgery" href="/Doctors/Search/?k=General Surgery">General Surgery</a>
+                                        <a id="globalNav-specialties-GeneticServices" href="/Doctors/Search/?k=Genetic Services">Genetic Services</a>
+                                        <a id="globalNav-specialties-HospitalistsHospitalCare" href="/Doctors/Search/?k=Hospitalist">Hospitalists (Hospital Care)</a>
+                                    </li>
+                                    <li>
+                                        <a id="globalNav-specialties-InfectiousDiseases" href="/Doctors/Search/?k=Infectious Diseases">Infectious Diseases</a>
+                                        <a id="globalNav-specialties-InternalMedicine" href="/Doctors/Search/?k=Internal Medicine">Internal Medicine</a>
+                                        <a id="globalNav-specialties-NephrologyKidneyCare" href="/Doctors/Search/?k=Nephrology">Nephrology (Kidney Care)</a>
+                                        <a id="globalNav-specialties-NeurosciencesNeurology" href="/Doctors/Search/?k=Neurology">Neurosciences (Neurology)</a>
+                                        <a id="globalNav-specialties-ObstetricsandGynecologyOBGYN" href="/Doctors/Search/?k=Obstetrics and Gynecology">Obstetrics and Gynecology
+                                            (OB/GYN)</a>
+                                        <a id="globalNav-specialties-OccupationalHealth" href="/Doctors/Search/?k=Occupational Health">Occupational Health</a>
+                                        <a id="globalNav-specialties-OncologyCancerCare" href="/Doctors/Search/?k=Oncology">Oncology (Cancer Care)</a>
+                                        <a id="globalNav-specialties-OphthalmologyandOptometryEyeCare" href="/Doctors/Search/?k=Ophthalmology and Optometry">Ophthalmology and
+                                            Optometry (Eye Care)</a>
+                                        <a id="globalNav-specialties-OralandMaxillofacialSurgery" href="/Doctors/Search/?k=Oral and Maxillofacial Surgery">Oral and
+                                            Maxillofacial Surgery</a>
+                                        <a id="globalNav-specialties-OrthopedicSurgery" href="/Doctors/Search/?k=Orthopedic Surgery">Orthopedic Surgery</a>
+                                        <a id="globalNav-specialties-PainManagement" href="/Doctors/Search/?k=Pain Management">Pain Management</a>
+                                        <a id="globalNav-specialties-PalliativeMedicine" href="/Doctors/Search/?k=Palliative Care">Palliative Medicine</a>
+                                        <a id="globalNav-specialties-Pediatrics" href="/Doctors/Search/?k=Pediatrics">Pediatrics</a>
+                                        <a id="globalNav-specialties-PhysicalandOccupationalTherapy" href="/Doctors/Search/?k=Physical and Occupational Therapy">Physical and
+                                            Occupational Therapy</a>
+                                        <a id="globalNav-specialties-PhysicalMedicineandRehabilitation" href="/Doctors/Search/?k=Physical Medicine and Rehabilitation">Physical
+                                            Medicine and Rehabilitation</a>
+                                    </li>
+                                    <li>
+                                        <a id="globalNav-specialties-PlasticandCosmeticSurgery" href="/Doctors/Search/?k=Plastic and Cosmetic Surgery">Plastic and Cosmetic
+                                            Surgery</a>
+                                        <a id="globalNav-specialties-Podiatry" href="/Doctors/Search/?k=Podiatry">Podiatry</a>
+                                        <a id="globalNav-specialties-PrimaryCare" href="/Doctors/Search/?k=Primary Care">Primary Care</a>
+                                        <a id="globalNav-specialties-PsychiatryandPsychology" href="/Doctors/Search/?k=Psychiatry and Psychology">Psychiatry and
+                                            Psychology</a>
+                                        <a id="globalNav-specialties-PulmonaryMedicineLungCare" href="/Doctors/Search/?k=Pulmonary Medicine">Pulmonary Medicine (Lung
+                                            Care)</a>
+                                        <a id="globalNav-specialties-Radiology" href="/Doctors/Search/?k=Radiology">Radiology</a>
+                                        <a id="globalNav-specialties-RheumatologyandArthritisCare" href="/Doctors/Search/?k=Rheumatology">Rheumatology and Arthritis Care</a>
+                                        <a id="globalNav-specialties-SleepMedicine" href="/Doctors/Search/?k=Sleep Medicine">Sleep Medicine</a>
+                                        <a id="globalNav-specialties-SportsMedicine" href="/Doctors/Search/?k=Sports Medicine">Sports Medicine</a>
+                                        <a id="globalNav-specialties-UrgentCare" href="/Doctors/Search/?k=Urgent Care">Urgent
+                                            Care</a>
+                                        <a id="globalNav-specialties-Urology" href="/Doctors/Search/?k=Urology">Urology</a>
+                                        <a id="globalNav-specialties-VascularSurgery" href="/Doctors/Search/?k=Vascular Surgery">Vascular Surgery</a>
+                                        <a id="globalNav-specialties-WoundHealing" href="/Doctors/Search/?k=Wound Healing">Wound Healing</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a id="globalNav-requestAppointment" href="/appointments">Request Appointment</a></li>
+                    <li><a id="globalNav-myMarshfieldClinic" href="/MyMarshfieldClinic">My Marshfield Clinic</a></li>
+                </ul>
+                <div class="new-form-container">
+                    <input class="test-input" id="newSearchInput" name="newSearchInput" placeholder="Search" title="search text box" type="text" autocomplete="off">
+                    <div id="searchIcon"></div>
+                    <div class="mobile-type-ahead-container">
+                        <div class="mobile-type-ahead-content"></div>
+                    </div>
+                    <button id="newSearchButton" class="header-test-button" type="submit">SEARCH</button>
+                </div>
+            </nav>
+            </div>
+            <div class="new-quick-tasks"><a id="globalSubNav-contactCareMyWay" href="/care-my-way">contact care my
+                way</a><a id="globalSubNav-payABill" href="/Patient-Resources/billing">pay a bill</a><a id="globalSubNav-refillPrescription" href="/renewprescription">refill prescriptions</a></div>
+
+
+        </div>
+    </div>
+</div>
