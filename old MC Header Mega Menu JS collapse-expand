@@ -1,0 +1,79 @@
+<script type="text/javascript">
+                $().ready(function(){
+                                $('.hero').show();
+                                $('#content').show();
+                                
+                    			$(function(){
+                                    var configLoc = {    
+                                         sensitivity: 3, // number = sensitivity threshold (must be 1 or higher)    
+                                         interval: 200,  // number = milliseconds for onMouseOver polling interval    
+                                         over: doOpen,   // function = onMouseOver callback (REQUIRED)    
+                                         timeout: 300,   // number = milliseconds delay before onMouseOut    
+                                         out: doClose    // function = onMouseOut callback (REQUIRED)    
+                                    };
+                                    function doOpen() {
+                                        //$(this).addClass("active");
+                                        //$('.locdrop:first', this).slideDown('fast');
+                                    }
+                                    function doClose() {
+                                        //$(this).removeClass("active");
+                                        //$('.locdrop:first', this).slideUp("fast");
+                                    }
+                                
+                                    //$(".locdd").hoverIntent(configLoc);    
+                                    $(".dd").hoverIntent(configLoc);      
+                                });
+                
+                                $('a.locLink').click(function() {      
+			                        $(".dd").removeClass("active");
+			                        $('a.exploreLink.navAtag').removeClass("active");
+			                        $('.drop:first').slideUp("fast");                                                                                          
+                                    $('.locdrop').slideToggle().toggleClass('active');
+                					$('a.locLink').toggleClass('active');
+                					$(".navigation.gradient").toggleClass("fixsafaribug");
+                                });
+                                
+
+                                $('a.exploreLink').click(function() { 
+                                    $(".locLink").removeClass("active");                               
+                                    $(".locdrop").removeClass("active");
+            						$('.locDrop:first').slideUp("fast");
+                     			});
+                     
+                                $(document).click(function(event) {
+                                    if ($(event.target).parent().hasClass('locLink')) {
+                                          // do nothing   
+                                       }              
+                                    else if ($(event.target).hasClass('locLink')) {  
+                                          // do nothing
+                                       }
+                                    else if ($(event.target).parent().hasClass('exploreLink')) {
+                                          // do nothing   
+                                       }              
+                                    else if ($(event.target).hasClass('exploreLink')) {  
+                                          // do nothing
+                                       }
+                                    else if ($(event.target).hasClass('mobileNav')) { 
+                                                      // do nothing                                                                                   
+                                                    }
+                                    else if ($(event.target).parent().hasClass('mobileNav')) {
+                                                      // do nothing
+                                                    }                                                                                                 
+                                    else {      
+                                       if ($('.locdrop').css("display") == "block") {     
+                                          $(".dd").removeClass("active");
+                                          $('.drop:first').slideUp("fast");                                                                                            
+                                          $('.locdrop').slideToggle().toggleClass('active');                
+                                          $('a.locLink').toggleClass('active');
+                                          $(".navigation.gradient").toggleClass("fixsafaribug");
+                                          }
+                                       if ($('.exploreDrop').css("display") == "block") {     
+                                          $(".dd").removeClass("active");
+                                          $('a.exploreLink.navAtag').removeClass("active");
+                                          $('.drop:first').slideUp("fast");                                                                                            
+                                          }                                                                              
+                                       }
+                                });                                                                          
+                      
+               	});
+		</script>
