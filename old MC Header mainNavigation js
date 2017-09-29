@@ -1,0 +1,39 @@
+$(document).ready(function () {
+$(function(){
+    var config = {    
+         sensitivity: 3, // number = sensitivity threshold (must be 1 or higher)    
+         interval: 200,  // number = milliseconds for onMouseOver polling interval    
+         over: doOpen,   // function = onMouseOver callback (REQUIRED)    
+         timeout: 300,   // number = milliseconds delay before onMouseOut    
+         out: doClose    // function = onMouseOut callback (REQUIRED)    
+    };
+    function doOpen() {
+        $(this).addClass("active");
+        $('.drop:first', this).slideDown('fast');
+    }
+    function doClose() {
+        $(this).removeClass("active");
+        $('.drop:first', this).slideUp("fast");
+    }
+    $(".dd").hoverIntent(config);
+	
+	$('a.exploreLink, .exploreDrop').hover (function () {
+		$('.navwrapper').toggleClass('dropped');
+		});
+});
+//menu drop down click/tap for tablet touch screens
+$('a.exploreLink').click(function() { 
+		$('.exploreDrop').slideToggle().toggleClass('active');
+		$('a.exploreLink').toggleClass('active');
+
+	});
+$('a.myMarshfieldButton, a.loginDropOpen').click(function() { 
+		$('.myMarshDrop').slideToggle().toggleClass('active');
+		$('a.myMarshfieldButton').toggleClass('active');
+	});		
+$('a.mobileNav').click(function() { 
+		$('.navwrapper').slideToggle().toggleClass('active');
+		$('.exploreDrop').css("display", "block");
+		$('a.mobileNav, .brandImage').toggleClass('active');
+	});
+});
